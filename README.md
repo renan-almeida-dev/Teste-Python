@@ -14,7 +14,7 @@ sudo docker build -t python-fatec .
 
 ```
 
-## Usage
+## Uso
 
 Executando através do Docker:
 ```bash
