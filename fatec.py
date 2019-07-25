@@ -9,7 +9,6 @@ from tabulate import tabulate
 __author__ = "Renan Almeida"
 __email__ = "renan.almeida@protonmail.com"
 
-
 def main():
     url = "https://www.vestibularfatec.com.br/classificacao/lista.asp"
     lista_candidatos = []
@@ -25,8 +24,7 @@ def main():
     print("[*] Capturando código-fonte do site...")
     
     try:
-        codigo_fonte = requests.post(url, data=dados_post).content
-    
+        codigo_fonte = requests.post(url, data=dados_post).content  
     except Exception as e:
         print(e)
         sys.exit(1)
@@ -42,9 +40,8 @@ def main():
                 continue
             
             elif index_linhas <= 10:
-                for index_linha, linha in enumerate(linhas.findAll("td")):
-                    candidato.append(linha.get_text())
-                
+                for linha in linhas.findAll("td"):
+                    candidato.append(linha.get_text())       
                 else:
                     lista_candidatos.append(candidato)
             
